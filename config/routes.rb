@@ -5,8 +5,8 @@ devise_for :customers,skip: [:passwords,], controllers: {
 }
 
   root to: 'public/homes#top'
-  get 'public/homes/about' => 'homes#about', as: 'about'
-  
+  get '/about' => 'public/homes#about'
+
   namespace :public do
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withbraw]
@@ -14,14 +14,14 @@ devise_for :customers,skip: [:passwords,], controllers: {
     resources :orders, only: [:new, :confirm, :complete, :create, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
-  
-  
+
+
 
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   root to: 'admin/homes#top'
-  
+
   namespace :admin do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
