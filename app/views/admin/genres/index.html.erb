@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-         <% @junres.each do |junre| %>
+         <% @genres.each do |junre| %>
          <tr>
            <td>
             <%= junre.name %>
@@ -27,7 +27,7 @@
            </td>
            <td>
              <%= link_to "編集する", edit_admin_genre_path(genre.id) %>
-             <% end %>
+         <% end %>
            </td>
          </tr>
         </tbody>
