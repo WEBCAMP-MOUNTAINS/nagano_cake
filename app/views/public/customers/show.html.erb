@@ -1,18 +1,22 @@
 <h2>マイページ</h2>
- <table>
   <thead>
     <tr>
-      <th>登録情報</th>
-    <div><%= link_to "編集する"%></div>
+    <th>登録情報</th>
+   <th><%= link_to "編集する",edit_customer_path(@customer)%></th>
     <!--上記、編集ページ-->
     </tr>
   </thead>
-  
+ <table border="1">
   <tbody>
-    <tr>
     <td>
-      
-    </td>
+    <tr>
+      <p>氏名<%= @customer.full_name %></p>
+      <p>カナ：<%= @customer.full_name_kana %></p>
+      <p>郵便番号：<%= @postal_code %></p>
+      <p>住所：<%= @address %></p>
+      <p>電話番号：<%= @phone_number %></p>
+      <p>メールアドレス：<%= @email %></p>
     </tr>
+    </td>
     </tbody>
-    </table>
+</table>
