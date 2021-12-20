@@ -5,9 +5,9 @@ devise_for :customers,skip: [:passwords,], controllers: {
 }
 
   root to: 'public/homes#top'
-  get '/about' => 'public/homes#about'
-
-  namespace :public do
+  get 'public/homes/about' => 'homes#about', as: 'about'
+  
+  scope module: :public do
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update, :unsubscribe, :withbraw]
     resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
@@ -17,7 +17,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
 
 
 
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   root to: 'admin/homes#top'
@@ -27,7 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update] do
-      resources :order_details, only: [:update]
+    resources :order_details, only: [:update]
     end
   end
 end
