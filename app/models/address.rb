@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
   
-  belongs_to :cus
+  belongs_to :customer
   
 end
