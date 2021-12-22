@@ -1,16 +1,17 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
-    redirect_to customer_path(@customer.id), notice: "内容を変更しました"
+    @customer = current_customer
+    # エラー中
+    if current_customer.update(update_params)
+    redirect_to customer_path(@customer), notice: "内容を変更しました"
     else
       render "edit"
     end
@@ -22,10 +23,10 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
+    @customer = current_customer
     @customer.update(is_deleted: true)
-      flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-        reset_session
-        redirect_to root_path
+      reset_session
+      redirect_to root_path
   end
 
 private
@@ -33,5 +34,9 @@ private
 def customer_params
    params.require(:customer).permit(:last_name,:first_name,:first_name_kana,:last_name_kana,:postal_code,:address,:phone_number,:email)
    params.require(:customer).permit(:active)
+end
+
+def update_params
+  params.require(:customer).permit(:last_name,:first_name,:first_name_kana,:last_name_kana,:postal_code,:address,:phone_number,:email)
 end
 end
