@@ -1,0 +1,11 @@
+<h1>商品詳細</h1>
+
+<div>
+  <%= attachment_image_tag @image, :image %>
+  <p>商品名：<%= @item.name %></p>
+  <p>商品説明：<%= @item.description %></p>
+  <p>ジャンル：<%= @item.genre_id %></p>
+  <p>税込価格：<%= @item.price %></p>
+  <p>販売ステータス：<%= @item.is_active %></p>
+  <p><%= link_to "編集する", edit_admin_path(@item) %></p>
+</div>
