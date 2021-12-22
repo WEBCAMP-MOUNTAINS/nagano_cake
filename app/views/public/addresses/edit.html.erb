@@ -3,11 +3,11 @@
         <div class="col m-3">
             <h2 class="text-white">配送先編集</h2>
                <div class="mt-5">
-                <%= form_with model: @address, url: edit_address_path(@address), method: :patch, local:true do |f| %>
+                <%= form_with model: @address, url: address_path(@address), method: :patch, local:true do |f| %>
                   <table class="table table-borderless table-dark" style="opacity: 0.8;">
                     <tr>
                       <td>郵便番号（ハイフンなし）</td>
-                      <td><%= f.text_field :post_code %></td>
+                      <td><%= f.text_field :postal_code %></td>
                     </tr>
                     <tr>
                       <td>住所</td>
