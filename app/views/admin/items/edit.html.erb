@@ -1,0 +1,20 @@
+<h2>商品編集</h2>
+<%= form_with model:@item, local:true do |f| %>
+  <label for="inputImage">ItemImage</label>
+  <%= f.attachment_field :image, placeholder: "商品画像" %>
+  <label for="inputName">商品名</label>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"商品名" %>
+  <label for="inputDescription">商品説明</label>
+  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+
+  <label for="inputDescription">商品説明</label>
+  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+
+  <label for="inputDescription">商品説明</label>
+  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+
+  <label for="inputDescription">商品説明</label>
+  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+
+  <%= f.submit "変更を保存" %>
+<% end %>
