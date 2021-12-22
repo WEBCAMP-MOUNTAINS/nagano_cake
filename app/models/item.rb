@@ -9,5 +9,10 @@ class Item < ApplicationRecord
    def taxin_price
      (price*1.1).round
    end
+   
+   enum is_active: {
+     selling: 0,
+     stop_selling: 1,
+   }
 
 end

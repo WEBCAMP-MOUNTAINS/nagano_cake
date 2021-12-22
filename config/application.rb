@@ -16,4 +16,8 @@ module NaganoCake
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+  
+  # enumの使用を日本語に対応させるため
+
+
 end
