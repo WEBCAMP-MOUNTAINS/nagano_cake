@@ -2,15 +2,25 @@
 <%= form_with model: @item, local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :image %>
+  
   <h4>商品名</h4>
   <%= f.text_field :name %>
+  
   <h4>商品説明</h4>
   <%= f.text_area :description %>
+  
   <h4>ジャンル</h4>
-  <%= f.select :genre_id, include_blank: '--選択してください--' %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank:"-- 選択してください --" %>
+  
   <h4>税抜価格</h4>
-  <%= f.text_field :price %>
+  <%= f.text_field :price %>円
+  
   <h4>販売ステータス</h4>
-
+  <%= f.radio_button :is_enabled, true %>
+    <%= f.label :is_enabled, "販売中" %>
+    <%= f.radio_button :is_enabled, false %>
+    <%= f.label :is_enabled, "売切れ" %>
+    
   <%= f.submit '新規登録' %>
+
 <% end %>
