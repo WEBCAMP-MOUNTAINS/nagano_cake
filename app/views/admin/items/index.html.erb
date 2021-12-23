@@ -1,0 +1,18 @@
+<h1>商品一覧</h1>
+<% @items.each do |item| %>
+  <p>商品ID<%= item.id %></p>
+
+  <p>商品名<%= link_to item.name, admin_item_path(item) %></p>
+
+  <p>税別価格<%= item.price %>円</p>
+
+  <p>ジャンル<%= item.genre.name %></p>
+
+  <p>販売ステータス<% if item.sold_out? %>
+    <span>販売中</span>
+  <% else %>
+    <span>販売停止中</span>
+  <% end %>
+  </p>
+
+ <% end %>
