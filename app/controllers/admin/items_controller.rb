@@ -2,11 +2,11 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
   end
-
+  
   def new
     @item = Item.new
   end
-
+  
   def create
     @item = Item.new(item_params)
     @item.genre_id = genre.id
@@ -15,17 +15,19 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
-
+  
   def edit
+    @user = User.find(params[:id])
   end
-
+  
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
     redirect_to admin__path(@item.id)
   end
-
+  
   private
 
   def item_params
