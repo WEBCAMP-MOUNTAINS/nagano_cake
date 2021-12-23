@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
   before_action :cart_item_any?, only: [:new, :comfirm]
   
   def new
+    @order = Order.new
     
   end
   
@@ -18,6 +19,7 @@ class Public::OrdersController < ApplicationController
   end
   
   def index
+    @orders = current_customer.orders.all
    
   end
   
