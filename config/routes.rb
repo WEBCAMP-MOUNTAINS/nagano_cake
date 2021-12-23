@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
 devise_for :customers,skip: [:passwords,], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -7,7 +7,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
 
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
-  
+
   scope module: :public do
     resources :items, only: [:index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -42,5 +42,5 @@ devise_for :customers,skip: [:passwords,], controllers: {
       resources :order_details, only: [:update], on: :collection
     end
   end
-  
+
 end
