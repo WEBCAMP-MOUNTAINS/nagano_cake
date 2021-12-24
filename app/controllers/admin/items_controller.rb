@@ -12,7 +12,6 @@ class Admin::ItemsController < ApplicationController
     @item.genre_id = genre.id
     @item.save
     redirect_to admin_item_path(@item)
-    byebug
   end
 
   def show
