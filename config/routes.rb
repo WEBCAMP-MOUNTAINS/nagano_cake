@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-devise_for :customers,skip: [:passwords,], controllers: {
+devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -26,7 +26,7 @@ devise_for :customers,skip: [:passwords,], controllers: {
 
 
 
- devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+ devise_for :admin, skip: [:passwords] ,controllers: {
   registrations: "admin/registrations",
   sessions: "admin/sessions"
 }
@@ -35,11 +35,18 @@ devise_for :customers,skip: [:passwords,], controllers: {
   get '/admin' => 'admin/homes#top'
 
   namespace :admin do
-    resources :items, except: :destroy
+    resources :customers, only: [:index, :edit, :update, :show] do
+     collection do
+        patch "withdraw"
+      end
+    end
+    resources :items, only: [:new, :index, :show, :create, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update] do
-      resources :order_details, only: [:update], on: :collection
+      resources :items, only: [:new, :index, :show, :create, :edit, :update]
+      resources :genres, only: [:index, :create, :edit, :update]
+      resources :customers, only: [:index, :show, :edit, :update]
+      resources :orders, only: [:show, :update] do
+        resources :order_details, only: [:update], on: :collection
     end
   end
 
