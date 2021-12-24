@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            <li>
+            <li class="nav-item">
               <%= link_to "マイページ", customer_path(current_customer.id), class: "btn btn-outline-info" %>
             </li>
             <li>
