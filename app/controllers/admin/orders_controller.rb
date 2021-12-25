@@ -1,10 +1,15 @@
 class Admin::OrdersController < ApplicationController
-  
+
+  def index
+    @orders = Order.all
+    @orders = Order.page(params[:page]).per(10)
+  end
+
   def show
     @order= Order.find(params[:id])
     @order_detail= @order.order_details
   end
-  
+
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
@@ -14,7 +19,7 @@ class Admin::OrdersController < ApplicationController
       render :show
     end
   end
-  
+
   private
 
   def order_params

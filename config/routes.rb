@@ -38,7 +38,7 @@ devise_for :customers,skip: [:passwords], controllers: {
     resources :items, except: :destroy
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update] do
+    resources :orders, only: [:show, :index, :update] do
       resources :order_details, only: [:update], on: :collection
     end
   end
