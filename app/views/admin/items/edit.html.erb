@@ -1,20 +1,50 @@
-<h2>商品編集</h2>
-<%= form_with model:@item, local:true do |f| %>
-  <label for="inputImage">ItemImage</label>
-  <%= f.attachment_field :image, placeholder: "商品画像" %>
-  <label for="inputName">商品名</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"商品名" %>
-  <label for="inputDescription">商品説明</label>
-  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+<div class="container my-5">
+  <div class="row mx-auto mb-4">
+    <h4 class = "col-auto text-center" style = "background-color:lightgray">商品編集</h4>
+  </div>
+    <%= form_with url:admin_item_path, model: @item, local:true do |f| %>
 
-  <label for="inputDescription">商品説明</label>
-  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+      <table class = "table table-borderless">
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :商品画像 %></th>
+          <td class = "col-8"><%= f.attachment_field :image %></td>
+        </tr>
 
-  <label for="inputDescription">商品説明</label>
-  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :商品名 %></th>
+          <td class = "col-8"><%= f.text_field :name, class:"col-6" %></td>
+        </tr>
 
-  <label for="inputDescription">商品説明</label>
-  <%= f.text_area :description, autofocus: true, id:"inputDescription", placeholder:"商品説明" %>
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :商品説明 %></th>
+          <td><%= f.text_area :description , :size=>"44x6" %></td>
+        </tr>
 
-  <%= f.submit "変更を保存" %>
-<% end %>
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :ジャンル %></th>
+        　<td class = "col-8"><%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: "-- 選択してください --" }, class:"col-6" %></td>
+        </tr>
+
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :税抜価格 %></th>
+          <td class = "col-8"><%= f.text_field :price , class:"col-6"%>&emsp;円</td>
+        </tr>
+
+        <tr class="row ml-5">
+          <th class = "offset-md-1 col-2"><%= f.label :販売ステータス %></th>
+          <td>
+            <%= f.radio_button :is_active, true %>
+            <span style="font-size:20px"><%= f.label :販売中 %></span>
+            &emsp;
+            <%= f.radio_button :is_active, false %>
+            <span style="font-size:20px"><%= f.label :販売停止中 %></span>
+          </td>
+        </tr>
+      </table>
+  <div class="container">
+    <div class="row">
+      <%= f.submit '変更を保存', class: "mx-auto btn btn-outline-success" %>
+    </div>
+  </div>
+    <% end %>
+    
