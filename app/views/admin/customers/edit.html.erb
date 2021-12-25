@@ -1,6 +1,6 @@
 <h2><%= @customer.full_name %>さんの会員情報の編集</h2>
 <div>
- <%= form_with model:@customer, local:true do |f| %>
+ <%= form_with url:admin_customer_path, model:@customer, local:true do |f| %>
  <table>
     <tr>
       <td>
@@ -40,6 +40,10 @@
 　　</tr>
 　　<tr>
 　　    <td><label class="form-label"> 会員ステータス</label></td>
+　　    <td>
+　　      <%= f.radio_button :is_deleted, "false" %>有効
+          <%= f.radio_button :is_deleted, "true" %>退会
+　　    </td>
 　  </tr>
 　　<tr>
 　　    <td><%= f.submit "変更内容を保存" %></td>
