@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#DMM. WEBCAMPのチーム開発
 
-Things you may want to cover:
+＃nagano_cake
+ながのケーキという架空のケーキ屋さんのホームページ作成しました。
 
-* Ruby version
 
-* System dependencies
+##実装したのはエンドユーザ側は商品一覧、カート機能、注文機能といった一般的なECサイトの機能です。
+管理者側は受注状況の確認できる機能であったり、商品のジャンル設定ができるサイトに仕上げました。
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+野良では交わらなかった地域、年齢の違う４人で
+わいわいと意見を出し合って作成しました。
