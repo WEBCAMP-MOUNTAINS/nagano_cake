@@ -21,15 +21,15 @@
                 <%= cart_item.item.name %>
             </td>
             <td>
-              <%= cart_item.item.with_tax_price %>
+              <%= cart_item.item.taxin_price %>
             </td>
             <td>
               <%= cart_item.amount %>
             </td>
             <td>
-              <%= cart_item.subtotal %>
+              <%= (cart_item.amount * cart_item.item.price*1.1).round.to_s(:delimited) %> 円
             </td>
-            <% @total += cart_item.subtotal %>
+            <% @total += cart_item.amount*cart_item.item.price*1.1 %>
           </tr>
         <% end %>
       </tbody>
@@ -41,7 +41,7 @@
        <tr>
          <th class="table-secondary">送料</th>
          <td>
-           <%= @order.shipping_cost.to_s %>
+           <%= @order.shopping_cost.to_s %>
          </td>
         </tr>
         <tr>
@@ -51,7 +51,7 @@
         <tr>
           <th class="table-secondary">請求金額</th>
           <td>
-            <%= @order.shipping_cost.to_i + @total %>
+            <%= @order.shopping_cost.to_i + @total %>
           </td>
         </tr>
       </table>
@@ -83,8 +83,8 @@
       <%= f.hidden_field :address %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :payment_method %>
-      <%= f.hidden_field :shipping_cost %>
-      <%= f.hidden_field :total_payment, :value => [@order.shipping_cost.to_i + @total] %>
+      <%= f.hidden_field :shopping_cost %>
+      <%= f.hidden_field :total_payment, :value => [@order.shopping_cost.to_i + @total] %>
       <%= f.submit "注文を確定する", class: 'btn btn-success mt-4 mx-auto' %>
     <% end %>
   </div>
