@@ -8,7 +8,7 @@
 
   <p>ジャンル<%= item.genre.name %></p>
 
-  <p>販売ステータス<% if item.sold_out? %>
+  <p>販売ステータス<% if item.is_active? %>
     <span>販売中</span>
   <% else %>
     <span>販売停止中</span>
