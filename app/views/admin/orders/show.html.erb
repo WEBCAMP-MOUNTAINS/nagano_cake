@@ -26,7 +26,7 @@
               <td>
                 <%= form_with model: @order, url: admin_order_path, local:true do |f| %>
                   <%#= f.collection_select :status, @order, :status, :status_i18n %>
-                  <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+                  <%= f.collection_select(:order_status, Order.order_statuses_i18n, :first, :last, {selected: @order.order_status}, {class: "form-control"}) %>
                   <%= f.submit "更新", :class=>"btn btn-success"%>
                 <% end %>
               </td>

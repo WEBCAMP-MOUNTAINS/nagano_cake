@@ -12,6 +12,13 @@
       <td><%= customer.id %></td>
       <td><%= link_to customer.full_name, admin_customer_path(customer)%></td>
       <td><%= customer.email %></td>
+      <td>
+        <% if customer.is_deleted == false %>
+          <font color = "green"><strong>有効</strong></font>
+        <% else %>
+          <font color = "red"><strong>退会</strong></font>
+        <% end %>
+      </td>
     </tr>
 <% end %>
 <%= paginate @customers %>
