@@ -11,7 +11,6 @@
           <th>小計</th>
       </thead>
       <tbody>
-        <% @total = 0 %>
         <% @cart_items.each do |cart_item| %>
           <tr>
             <td>
@@ -21,15 +20,15 @@
                 <%= cart_item.item.name %>
             </td>
             <td>
-              <%= cart_item.item.taxin_price %>
+              <%= cart_item.item.taxin_price %>円
             </td>
             <td>
               <%= cart_item.amount %>
             </td>
             <td>
-              <%= (cart_item.amount * cart_item.item.price*1.1).round.to_s(:delimited) %> 円
+              <%= (cart_item.amount * cart_item.item.price*1.1).round.to_s(:delimited) %>円
             </td>
-            <% @total += cart_item.amount*cart_item.item.price*1.1 %>
+            <% cart_item.amount*cart_item.item.price*1.1 %>円
           </tr>
         <% end %>
       </tbody>
@@ -41,17 +40,17 @@
        <tr>
          <th class="table-secondary">送料</th>
          <td>
-           <%= @order.shopping_cost.to_s %>
+           <%= @order.shopping_cost.to_s %>円
          </td>
         </tr>
         <tr>
           <th class="table-secondary">商品合計</th>
-          <td><%= @total %></td>
+          <td><%= @total.round.to_s(:delimited)%>円</td>
         </tr>
         <tr>
           <th class="table-secondary">請求金額</th>
           <td>
-            <%= @order.shopping_cost.to_i + @total %>
+            <%= @order.shopping_cost.to_i + @total %>円
           </td>
         </tr>
       </table>
