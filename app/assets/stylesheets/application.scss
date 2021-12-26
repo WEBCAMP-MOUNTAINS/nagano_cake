@@ -17,8 +17,443 @@
 @import "slick-theme";
 @import "slick"; 
 
+.navbar-light .navbar-brand span {
+  color: #d1bd67;
+}
+
 .btn-sm {
   margin-right: 10px;
+  color: #d1bd67;
+}
+
+
+.btn-sm:hover, .btn-sm:focus, 
+.btn-sm:active, .btn-sm:active:focus, .btn-sm:active:hover, .btn-sm:active.focus,
+.btn-sm.active, .btn-sm.active:focus, .btn-sm.active:hover, .btn-sm.active.focus,
+.open > .dropdown-toggle.btn-sm, 
+.open > .dropdown-toggle.btn-sm:hover,
+.open > .dropdown-toggle.btn-sm:focus, 
+.open > .dropdown-toggle.btn-sm.focus,
+.btn-sm.disabled:hover, .btn-sm[disabled]:hover, fieldset[disabled] .btn-sm:hover,
+.btn-sm.disabled:focus, .btn-sm[disabled]:focus, fieldset[disabled] .btn-sm:focus,
+.btn-sm.disabled.focus, .btn-sm[disabled].focus, fieldset[disabled] .btn-sm.focus {
+    background: #d1bd67; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+}
+
+.btn-outline-secondary {
+  border-color: #d1bd67;
+}
+
+
+.title {
+  margin-top: -150px;
+}
+
+.previews {
+  position: relative;
+}
+
+.slider_01 {
+  position: relative;
+}
+
+.slider_01 .main-visual-text {
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  font-size: 45px;
+}
+
+.slider_01 .main-visual-text2 {
+  position: absolute;
+  top: 350px;
+  left: 105px;
+  font-size: 25px;
+}
+
+.slider_01 img {
+  width: 100vw;
+}
+
+.slider_02 {
+  position: relative;
+}
+
+.slider_02 .main-visual-text {
+  position: absolute;
+  top: 275px;
+  left: 700px;
+  font-size: 37px;
+}
+
+.slider_02 .main-visual-text2 {
+  position: absolute;
+  top: 350px;
+  left: 710px;
+  font-size: 25px;
+}
+
+.slider_02 img {
+  width: 100vw;
+}
+
+.slider_03 {
+  position: relative;
+}
+
+.slider_03 .main-visual-text {
+  position: absolute;
+  top: 580px;
+  left: 455px;
+  font-size: 30px;
+  color: green;
+}
+
+.slider_03 img {
+  width: 100vw;
+}
+
+
+
+.ribbon_heading {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 18px;
+  background: #acd879;
+  color: #FFF;
+  box-sizing: border-box;
+  margin-top: -95px;
+}
+
+.ribbon_heading h3 {
+  margin: 0;
+  padding: 0 30px;
+  border-top: dashed 2px rgba(255, 255, 255, 0.5);
+  border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+  line-height: 42px;
+  color: white;
+  textalign: center
+}
+
+.ribbon_heading:before, .ribbon_heading:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.ribbon_heading:before {
+  /*左の山形*/
+  top: 0;
+  left: 0;
+  border-width: 30px 0px 30px 15px;
+  border-color: transparent transparent transparent transparent;
+  border-style: solid;
+}
+
+.ribbon_heading:after {
+  /*右の山形*/
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent transparent transparent transparent;
+  border-style: solid;
+}
+
+.ribbon2 {
+  display: inline-block;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 18px;/*フォントサイズ*/
+  background: #78d0f5;/*背景色*/
+  color: #FFF;/*文字色*/
+  box-sizing: border-box;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.ribbon2 h3 {
+  margin: 0;
+  padding: 0 30px;
+  border-top: dashed 1px #FFF;/*上の破線*/
+  border-bottom: dashed 1px #FFF;/*下の破線*/
+  line-height: 46px;
+  color: white;
+}
+
+.ribbon2:before, .ribbon2:after {
+  position: absolute;
+  content: '';
+  width: 0px;
+  height: 0px;
+  z-index: 1;
+}
+
+.ribbon2:before {
+  /*左端の山形*/
+  top: 0;
+  left: 0;
+  border-width: 30px 0px 30px 15px;
+  border-color: transparent transparent transparent #fff;
+  border-style: solid;
+}
+
+.ribbon2:after {
+  /*右端の山形*/
+  top: 0;
+  right: 0;
+  border-width: 30px 15px 30px 0px;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+}
+
+.ribbon10 {
+  display: inline-block;
+  position: relative;
+  height: 45px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.ribbon10:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: -10px;
+  left: -35px;
+  z-index: -2;
+  border: 20px solid #a5cff3;
+  border-left-color: transparent;
+}
+
+.ribbon10:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: -10px;
+  right: -35px;
+  z-index: -2;
+  border: 20px solid #a5cff3;
+  border-right-color: transparent;
+}
+
+.ribbon10 h1 {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0 20px;
+  line-height: 45px;
+  font-size: 18px;
+  color: #008eff;
+  text-shadow: 0 0 2px #FFF;
+  background: -webkit-repeating-linear-gradient(-45deg, #b0daff, #b0daff 3px,#cfe8ff 3px, #cfe8ff 7px);
+  background: repeating-linear-gradient(-45deg, #b0daff, #b0daff 3px,#cfe8ff 3px, #cfe8ff 7px);
+}
+
+.ribbon10 h1:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 10px transparent;
+  border-right: solid 15px #7fafd9;
+}
+
+.ribbon10 h1:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  right: 0;
+  border: none;
+  border-bottom: solid 10px transparent;
+  border-left: solid 15px #7fafd9;
+}
+
+.about {
+  background-image: image-url('nagano.jpg');
+  height: 100vh;
+  width: 100%;
+  background-size:cover;
+}
+
+.about_text {
+  margin-top: 50px;
+  color: #faf8ee;
+}
+
+.item_lists {
+  margin-right: -100px;
+  margin-left: 10px;
+}
+
+.item_list {
+  margin-bottom: 30px;
+}
+
+
+
+
+.box1 {
+  width: 350px;
+  height: 1000px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+.box2 {
+  width: 350px;
+  height: 450px;
+  margin: 60px auto 0;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+.box-inner {
+  padding: 20px 26px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+}
+
+.box-name {
+  margin-bottom: 13px;
+}
+
+.box-name-kana {
+  margin-bottom: 13px;
+}
+
+.box-email {
+  margin-bottom: 13px;
+}
+
+.box-postal-code {
+  margin-bottom: 13px;
+}
+
+.box-address {
+  margin-bottom: 13px;
+}
+
+.box-phone-number {
+  margin-bottom: 13px;
+}
+
+.box-password {
+  margin-bottom: 22px;
+}
+
+.box-password-confirmation {
+  margin-bottom: 13px;
+}
+
+.box-name label, .box-name-kana label,  .box-email label,
+.box-postal-code label, .box-address label, .box-phone-number label, 
+.box-password label, .box-password-confirmation label {
+  font-weight: 700;
+  font-size: 13px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+}
+
+.box-name input[type="text"], .box-name-kana input[type="text"], .box-email input[type="email"], 
+.box-postal-code input[type="text"], .box-address input[type="text"], .box-phone-number input[type="text"],
+.box-password input[type="password"], .box-password-confirmation input[type="password"] {
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 31px;
+  border: 1px solid #a6a6a6;
+  box-shadow: 0 1px 0 rgba(0,0,0,.07) inset;
+  border-radius: 3px;
+  padding: 0 7px;
+}
+
+.column-left {
+  float: left;
+}
+
+.column-right {
+  float: right;
+}
+
+.box-password a {
+  font-size: 13px;
+}
+
+.box-login {
+  margin-bottom: 26px;
+}
+
+.box-login input[type="submit"] {
+  border-style: none;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border-radius: 3px;
+  border: 1px #a88734 solid;
+}
+
+.box-login input[type="submit"]:hover {
+  cursor: pointer;
+  background: #f0c14b;
+}
+
+.remember {
+  font-size: 13px;
+  margin-top: 18px;
+  padding-left: 3px;
+}
+
+.box-newusr p {
+  text-align: center;
+  font-size: 12px;
+  color: #767676;
+  margin-bottom: 14px;
+}
+
+.box-newusr p span {
+  text-decoration: line-through;
+  text-decoration-color: #e7e7e7;
+}
+
+.box-newusr a {
+  display: block;
+  width: 100%;
+  height: 31px;
+  font-size: 13px;
+  color: #111;
+  line-height: 31px;
+  text-align: center;
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+  border-radius: 3px;
+  border: 1px #a2a6ac solid;
+}
+
+.box-newusr a:hover {
+  background: #e7e9ec;
+}
+
+
+.footer {
+  margin-top: 300px;
 }
 
 .previews {
