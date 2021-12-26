@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @order.shipping_cost = 800
+    @order.shopping_cost = 800
     @cart_items = current_customer.cart_items.all
     @total = 0
 
@@ -29,6 +29,32 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+    order = Order.new(session[:order])
+    order.save
+
+    if session[:new_address]
+      address = current_customer.addresses.new
+      address.postal_code = order.postal_code
+      address.address = order.address
+      address.name = order.name
+      address.save
+      session[:new_address] = nil
+    end
+
+    cart_items = current_customer.cart_items
+    cart_items.each do |cart_item|
+      order_details = OrderDetail.new
+      order_details.order_id = order.id
+      order_details.item_id = cart_item.item.id
+      oorder_details.amount = cart_item.amount
+      order_details.making_status = 0
+      order_details.price = (cart_item.item.taxin_price).floor
+      order_details.save
+    end
+
+    session.delete(:order)
+    session[:order] = nil
+    cart_items.destroy_all
   end
 
   def create
@@ -45,7 +71,7 @@ class Public::OrdersController < ApplicationController
       order_detail.save
     end
     current_customer.cart_items.destroy_all
-    redirect_to orders_thanks_path
+    redirect_to complete_orders_path
     else
       render :new
     end
@@ -62,7 +88,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method,:postal_code, :address, :name, :payment_method)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :shopping_cost, :total_payment)
   end
-
 end

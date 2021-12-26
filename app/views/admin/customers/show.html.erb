@@ -30,6 +30,13 @@
   </tr>
   <tr>
      <th>会員ステータス</th>
+    <td>
+      <% if @customer.is_deleted == false %>
+      <font color = "green"><strong>有効</strong></font>
+    <% else %>
+      <font color = "red"><strong>退会</strong></font>
+    <% end %>
+    </td>
   </tr>
   </table>
  <%= button_to "編集する", edit_admin_customer_path(@customer) , method: :get %>
