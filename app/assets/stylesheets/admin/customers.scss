@@ -1,3 +1,22 @@
 // Place all the styles related to the admin/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  border-collapse: separate;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+
+.show-table {
+  width: 50%;
+  heigth: 70%;
+  
+}
+
+
+table {
+  padding: 5px 8px;
+  border-radius: 3px; /*角を丸く*/
+  color: #fff;
+  font-size: 23px;
+}
