@@ -11,7 +11,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shopping_cost = 800
     @cart_items = current_customer.cart_items.all
-    @total = 0
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
 
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
