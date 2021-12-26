@@ -1,22 +1,27 @@
-<h3>ログイン</h3>
-
-<h4>会員の方はこちらからログイン</h4>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="box2">
+  <div class="box-inner">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
+      <h1>ログイン</h1>
+      
+      <div class="box-email">
+        <%= f.label :email, "Eメール" %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    
+      <div class="box-password">
+        <%= f.label :password, "パスワード" %><br>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+    
+      <div class="box-login">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+    
+    <div class="box-newusr">
+      <p><span>------------</span> 新しいお客様ですか？ <span>------------</span></p>
+      <%= link_to "新規登録", new_customer_registration_path %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-<h4>会員登録がお済みでない方</h4>
-<%= render "public/shared/links" %>
-<h4>から新規登録を行って行ってください。</h4>
+</div>

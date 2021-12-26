@@ -1,8 +1,22 @@
 <%= render "layouts/slider" %>
 
 
-<h2>新着商品</h2>
-<% if customer_signed_in? %>
-ログイン中
-<% end %>
-<!--商品一覧挿入-->
+<div class="container px-5">
+  
+  
+  <div class="row justify-content-center">
+    <div class="col-md-2.5 ribbon_heading">
+      <h3>New Items</h3>
+    </div>
+  </div>
+
+
+  <div class="col-md-9"><br>
+    
+    <% if customer_signed_in? %>
+    ログイン中
+    <% end %>
+    <!--商品一覧挿入-->
+  </div> 
+  
+</div>
